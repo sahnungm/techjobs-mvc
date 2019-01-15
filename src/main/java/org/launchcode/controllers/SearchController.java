@@ -9,20 +9,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 import static org.launchcode.models.JobData.findByColumnAndValue;
 import static org.launchcode.models.JobData.findByValue;
+
 
 /**
  * Created by LaunchCode
  */
 @Controller
 @RequestMapping("search")
+
 public class SearchController extends TechJobsController{
 
     @RequestMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", ListController.columnChoices);
         model.addAttribute("all","all");
+
         return "search";
     }
 

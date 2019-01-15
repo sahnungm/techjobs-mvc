@@ -21,7 +21,9 @@
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
+
                         th:checked="${column.key == all}"/>
+
                 <label th:for="${column.key}" th:text="${column.value}"></label>
             </span>
 
@@ -36,6 +38,7 @@
     </form>
 
     <hr />
+
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
     <div >
         <p th:unless="${jobs} and ${jobs.size()}" class="alert alert-danger">Please Enter a Search Parameter or try a different Parameter</p>
@@ -69,6 +72,10 @@
             </tr>
         </table>
     </div>
+
+
+
+
 </div>
 
 </body>

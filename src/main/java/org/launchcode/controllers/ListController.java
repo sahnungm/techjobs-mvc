@@ -14,10 +14,12 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping(value = "list")
+
 public class ListController extends TechJobsController{
 
     @RequestMapping(value = "")
     public String list(Model model) {
+
         return "list";
     }
 
@@ -42,7 +44,6 @@ public class ListController extends TechJobsController{
     @RequestMapping(value = "jobs")
     public String listJobsByColumnAndValue(Model model,
                                            @RequestParam String column, @RequestParam String value) {
-
         ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(column, value);
         model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
         model.addAttribute("jobs", jobs);
@@ -50,3 +51,4 @@ public class ListController extends TechJobsController{
         return "list-jobs";
     }
 }
+

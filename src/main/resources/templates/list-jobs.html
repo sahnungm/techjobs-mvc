@@ -5,13 +5,16 @@
 <body>
 
 <div th:replace="fragments :: page-header"></div>
+
 <div th:replace="fragments :: action-menu"></div>
+
 
 <div class="container body-content">
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #3 - Use the same list display from search.html -->
+
     <table>
         <tr>
             <td>Name</td>
@@ -41,6 +44,7 @@
             </td>
         </tr>
     </table>
+
 </div>
 
 </body>
