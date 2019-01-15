@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+<div th:replace="fragments :: action-menu"></div>
+
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <!-- TODO #3 - Use the same list display from search.html -->
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Position Type</td>
+            <td>Employer</td>
+            <td>Location</td>
+            <td>Skill</td>
+        </tr>
+        <tr th:each="job : ${jobs}">
+
+            <td th:text="${#strings.capitalizeWords(job.get('name'))}">Name</td>
+            <td>
+                <a  th:href="@{/search/results(searchType='all',searchTerm=${job.get('position type')})}"
+                    th:text="${#strings.capitalizeWords(job.get('position type'))}">Position Type</a>
+            </td>
+            <td>
+                <a th:href="@{/search/results(searchType='all',searchTerm=${job.get('employer')})}"
+                   th:text="${#strings.capitalizeWords(job.get('employer'))}">Employer</a>
+            </td>
+            <td>
+                <a th:href="@{/search/results(searchType='all',searchTerm=${job.get('location')})}"
+                   th:text="${#strings.capitalizeWords(job.get('location'))}">Location</a>
+            </td>
+            <td>
+                <a th:href="@{/search/results(searchType='all',searchTerm=${job.get('core competency')})}"
+                   th:text="${#strings.capitalizeWords(job.get('core competency'))}">Skill</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
